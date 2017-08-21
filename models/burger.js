@@ -1,4 +1,4 @@
-var orm = require('../config/orm');
+var dao = require('../config/dao');
 
 
 var burger;
