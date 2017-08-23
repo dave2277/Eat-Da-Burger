@@ -1,6 +1,10 @@
 var dao = require('../config/dao');
 
+var callback = function (err, data) {
+    console.log(data);
+};
 
-var burger;
+var data = dao.selectAll("id", "burger_name", "devoured", "burgers", callback);
 
-module.exports = burger;
+
+// dao.insertOne("burgers", "burger_name", "devoured", "date");

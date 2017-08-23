@@ -1,31 +1,20 @@
 var connection = require("./connection");
 
-// var orm = {
+var dao = {
 
 
-//     selectAll: function(tableInput, colToSearch, valOfCOl){
-//         var queryString = "SELECT * FROM ?? WHERE ?? = ?";
-//         connection.query(queryString, [tableInput, colToSearch valOfCOl], function(err, result){
-//             console.log(result);
-//         });
-//     },
-//
-//     insertOne: function(tableInput, colToSearch, valOfCOl) {
-//         var queryString = "INSERT INTO ?? ";
-//         connection.query(queryString, [tableInput, colToSearch valOfCOl], function (err, result) {
-//             console.log(result);
-//
-//         });
-//     },
-//
-//     updateOne: function(tableInput, colToUpdate, newVal, valOfCOl) {
-//        var queryString = "UPDATE ?? SET ?? = ?? WHERE ?? = ?";
-//        connection.query(queryString, [tableInput, colToUpdate, valOfCOl], function (err, result){
-//
-//        })
-//     }
-// };
+    selectAll: function (columnOne, columnTwo, columnThree, table, callback) {
+        var queryString = "SELECT ??, ??, ?? FROM ??";
+        connection.query(queryString, [columnOne, columnTwo, columnThree, table], callback)
+        }
 
+    // insertOne: function (table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree) {
+    //     var queryString = "INSERT INTO ?? (??, ??, ?? ) VALUES (??, ??, ??)";
+    //     connection.query(queryString, [table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree], function (err, result) {
+    //         console.log(result);
+    //
+    //     });
+    // }
+};
 
-
-// module.exports = orm;
+module.exports = dao;
