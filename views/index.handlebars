@@ -1,4 +1,4 @@
-
+<!-- 
     <ul>
         {{#each burgers}}
             <li>
@@ -7,21 +7,20 @@
             </li>
         {{/each}}
     </ul>
-
+ -->
 
 <!-- Format that could be used for eating burgers -->
-{{!#each burgers}}
-<!--<div class="panel panel-default">-->
-    <!--<div class="panel-heading">-->
-        <!--<h3 class="panel-title">{{!this.burger}}</h3>-->
-    <!--</div>-->
-    <!--<div class="panel-body">-->
-        <!--<form action="/{{!this.id}}?_method=DELETE" method="POST">-->
-            <!--<button type="submit">Eat It!</button>-->
-        <!--</form>-->
-    <!--</div>-->
-<!--</div>-->
-{{!/#each}}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Your Burgers</h3>
+    </div>
+    <div class="panel-body">
+        <form action="/{{!this.id}}?_method=DELETE" method="POST">
+            <button type="submit">Eat It!</button>
+        </form>
+    </div>
+</div>
 
 
 

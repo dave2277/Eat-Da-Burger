@@ -9,12 +9,9 @@ const app = express();
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.use(express.static("public"));
+app.use(express.static("assets"));
 
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(methodOverride('_method'));
 

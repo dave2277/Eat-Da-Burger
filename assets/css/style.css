@@ -1,0 +1,57 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+form {
+	color: white;
+}
+
+button {
+	color: black;
+}
+
+ol {
+	font-size: 20px;
+}
+
+.form-control {
+	width: 400px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+	". title title title ."
+	". enteredburgers enteredburgers . ."
+	". burgerpic burgerform burgerform ."
+	". burgerpic eatenburgers eatenburgers ."
+	". footer footer footer .";
+	grid-gap: 10px;
+}
+
+.title {
+grid-area: title;
+}
+
+.enteredburgers {
+grid-area: enteredburgers;
+}
+
+.burgerpic {
+grid-area: burgerpic;
+}
+
+.burgerform {
+grid-area: burgerform;
+}
+
+.eatenburgers {
+grid-area: eatenburgers;
+}
+
+.footer {
+grid-area: footer;
+}
+
