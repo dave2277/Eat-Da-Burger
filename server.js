@@ -20,9 +20,6 @@ app.use(methodOverride('_method'));
 
 require('./controllers/burgers_controller')(app);
 
-//Took this line from the cats app.  Not exactly sure what it does or why it's necessary.  TAs?
-// app.use("/", routes);
-
 app.listen(PORT, function() {
     console.log('Listening on port ' + PORT);
 });
