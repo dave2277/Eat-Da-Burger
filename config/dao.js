@@ -1,20 +1,23 @@
-var connection = require("./connection");
+const connection = require("./connection");
 
-var dao = {
+const dao = {
 
 
-    selectAll: function (columnOne, columnTwo, columnThree, table, callback) {
-        var queryString = "SELECT ??, ??, ?? FROM ??";
-        connection.query(queryString, [columnOne, columnTwo, columnThree, table], callback)
-        }
+    selectAll: function (columnOne, columnTwo, table, callback) {
+        const queryString = "SELECT ??, ?? FROM ??";
+        connection.query(queryString, [columnOne, columnTwo, table], function (err, result) {
 
-    // insertOne: function (table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree) {
-    //     var queryString = "INSERT INTO ?? (??, ??, ?? ) VALUES (??, ??, ??)";
-    //     connection.query(queryString, [table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree], function (err, result) {
-    //         console.log(result);
-    //
-    //     });
-    // }
+            callback(err, result);
+        })
+    },
+
+    create: function (table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree, callback) {
+        const queryString = "INSERT INTO ?? (??, ??, ?? ) VALUES (??, ??, ??)";
+        connection.query(queryString, [table, columnOne, columnTwo, columnThree, valOne, valTwo, valThree], function (err, result) {
+
+            callback(err, result);
+        });
+    }
 };
 
 module.exports = dao;

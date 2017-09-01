@@ -1,24 +1,29 @@
 const express = require('express');
 const burger = require('../models/burger');
-var thingy;
 
 
 module.exports = function (app) {
 
 
     app.get('/', function (req, res) {
-        thingy = burger.all(function(data) {
-
+        burger.all(function(err, data) {
+        res.render('index', { burgers: data});
         });
-        console.log(thingy);
-        res.render('index', { burgers: thingy});
+
     });
 
 
-    // app.post('/', function (req, res) {
-    //
-    //     console.log(req.body);
-    //     res.redirect("/");
-    //
-    // });
+    app.post('/', function (req, res) {
+        burger.create(function(err, data) {
+        console.log(req.body.burger_name);
+        res.redirect("/");
+        })
+
+    });
+
+
+    app.devour('/:id', function(req, res) {
+        burger.delete(function(err, data) {
+        })
+    })
 };
