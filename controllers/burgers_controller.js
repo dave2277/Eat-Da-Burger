@@ -1,7 +1,6 @@
 const express = require('express');
 const burger = require('../models/burger');
 
-
 module.exports = function (app) {
 
 
@@ -14,16 +13,15 @@ module.exports = function (app) {
 
 
     app.post('/', function (req, res) {
-        burger.create(function(err, data) {
-        console.log(req.body.burger_name);
-        res.redirect("/");
-        })
 
+        burger.create("burger_name", req.body.burgobj, function(err, result) {
+            res.redirect("/");
+        })
     });
-
-
-    app.devour('/:id', function(req, res) {
-        burger.delete(function(err, data) {
-        })
-    })
+    //
+    //
+    // app.delete('/:id', function(req, res) {
+    //     burger.devour(function(err, data) {
+    //     })
+    // })
 };
