@@ -12,8 +12,11 @@ const dao = {
     },
 
     create: function (table, cols, values, callback) {
-        const queryString = "INSERT INTO" + table + "(" + cols + ")  VALUES (??)";
-        connection.query(queryString, [values], function(err, result) {
+        const queryString = "INSERT INTO ?? (??) VALUES (?)";
+        connection.query(queryString, [table, cols, values], function(err, result) {
+            if (err) {
+                throw err;
+            }
             console.log(callback);
             callback(err, result);
         });

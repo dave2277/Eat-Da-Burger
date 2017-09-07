@@ -11,9 +11,12 @@ var burger = {
     },
 
     create: function (cols, values, cb) {
-        dao.create("burgers", "burger_name", values, function (result) {
+        dao.create("burgers", cols, values, function (err, result) {
             console.log(cb);
-            cb(result);
+            if (err) {
+                throw err;
+            }
+            cb(err, result);
         })
     }
 };
