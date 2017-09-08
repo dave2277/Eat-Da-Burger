@@ -11,14 +11,23 @@ var burger = {
     },
 
     create: function (cols, values, cb) {
-        dao.create("burgers", cols, values, function (err, result) {
-            console.log(cb);
+        dao.insertOne("burgers", cols, values, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(err, result);
+        })
+    },
+
+    devour: function (cols, values, id, cb) {
+        dao.updateOne("burgers", cols, values, id, function (err, result){
             if (err) {
                 throw err;
             }
             cb(err, result);
         })
     }
+
 };
 
 module.exports = burger;
