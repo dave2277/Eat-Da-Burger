@@ -9,7 +9,7 @@ module.exports = function (app) {
 
     router.get('/', function (req, res) {
         burger.all(function(err, data) {
-            console.log(data);
+        console.log(data);
         res.render('index', { burgers: data});
         });
 
@@ -27,11 +27,6 @@ module.exports = function (app) {
     });
 
     router.put('/burgers/:id', function(req, res) {
-        console.log(req.params.id);
-
-        // connection.query("UPDATE burgers SET devoured = true WHERE id = ?", [req.params.id], function(err, result) {
-        //     if (err) throw err;
-
         burger.devour(req.params.id, function(err, data) {
             if (err) {
                 throw err;

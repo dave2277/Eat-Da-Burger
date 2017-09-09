@@ -1,8 +1,6 @@
 const dao = require('../config/dao');
-var values = '';
-var cols = '';
 
-var burger = {
+const burger = {
 
     all: function (cb) {
         dao.selectAll("id", "burger_name", "devoured", "burgers", function (err, result) {
