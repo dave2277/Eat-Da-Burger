@@ -5,7 +5,7 @@ var cols = '';
 var burger = {
 
     all: function (cb) {
-        dao.selectAll("burger_name", "devoured", "burgers", function (err, result) {
+        dao.selectAll("id", "burger_name", "devoured", "burgers", function (err, result) {
             cb(err, result);
         })
     },
@@ -19,8 +19,8 @@ var burger = {
         })
     },
 
-    devour: function (cols, values, id, cb) {
-        dao.updateOne("burgers", cols, values, id, function (err, result){
+    devour: function (id, cb) {
+        dao.updateOne(id, function (err, result){
             if (err) {
                 throw err;
             }

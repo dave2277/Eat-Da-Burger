@@ -1,5 +1,6 @@
 const express = require('express');
 const burger = require('../models/burger');
+const connection = require("./../config/connection");
 
 const router = express.Router();
 
@@ -8,6 +9,7 @@ module.exports = function (app) {
 
     router.get('/', function (req, res) {
         burger.all(function(err, data) {
+            console.log(data);
         res.render('index', { burgers: data});
         });
 
@@ -24,9 +26,13 @@ module.exports = function (app) {
 
     });
 
-    router.put('/:id', function(req, res) {
-        burger.devour("devoured", true, req.params.id, function(err, data) {
-            console.log(req.params.id);
+    router.put('/burgers/:id', function(req, res) {
+        console.log(req.params.id);
+
+        // connection.query("UPDATE burgers SET devoured = true WHERE id = ?", [req.params.id], function(err, result) {
+        //     if (err) throw err;
+
+        burger.devour(req.params.id, function(err, data) {
             if (err) {
                 throw err;
             }
